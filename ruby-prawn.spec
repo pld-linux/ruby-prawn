@@ -1,11 +1,8 @@
-# TODO
-# - any policy what to package in %{ruby_ridir}?
-#
 %define pkgname prawn
 Summary:	Pure Ruby PDF generation library
 Name:		ruby-%{pkgname}
 Version:	0.8.4
-Release:	0.1
+Release:	1
 License:	Ruby License
 Source0:	http://rubygems.org/downloads/%{pkgname}-core-%{version}.gem
 # Source0-md5:	6d0d9e583b24b0323b53756ce53edd7c

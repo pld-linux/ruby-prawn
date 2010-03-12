@@ -1,0 +1,20 @@
+--- ruby-prawn-0.8.4/lib/prawn/core.rb~	2010-02-25 04:49:55.000000000 +0100
++++ ruby-prawn-0.8.4/lib/prawn/core.rb	2010-03-12 18:08:42.845120337 +0100
+@@ -8,7 +8,7 @@
+ require "set"
+ 
+ %w[ttfunk/lib].each do |dep|
+-  $LOAD_PATH.unshift(File.dirname(__FILE__) + "/../../vendor/#{dep}")
++  $LOAD_PATH.unshift(File.dirname(__FILE__) + "/vendor/#{dep}")
+ end
+ 
+ begin
+@@ -29,7 +29,7 @@
+                           
+   # The base source directory for Prawn as installed on the system
+   #
+-  BASEDIR = File.expand_path(File.join(dir, '..', '..'))
++  BASEDIR = File.expand_path(dir)
+   
+   VERSION = "0.8.4"
+   

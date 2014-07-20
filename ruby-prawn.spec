@@ -67,8 +67,9 @@ find -newer README -o -print | xargs touch --reference %{SOURCE0}
 %build
 rdoc --ri --op ri lib
 rdoc --op rdoc lib
-rm -r ri/{Arcfour,File,Numeric,String}
+rm -r ri/{Arcfour,File,Numeric}
 rm ri/created.rid
+rm ri/cache.ri
 
 %install
 rm -rf $RPM_BUILD_ROOT

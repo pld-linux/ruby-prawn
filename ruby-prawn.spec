@@ -1,8 +1,12 @@
+# TODO
+# - unvendor ttfunk
+# - unvendor pdfinspector
+# - use system afm fonts
 %define pkgname prawn
 Summary:	Pure Ruby PDF generation library
 Name:		ruby-%{pkgname}
 Version:	0.8.4
-Release:	1
+Release:	2
 License:	Ruby License
 Source0:	http://rubygems.org/downloads/%{pkgname}-core-%{version}.gem
 # Source0-md5:	6d0d9e583b24b0323b53756ce53edd7c
@@ -12,16 +16,12 @@ Source2:	http://rubygems.org/downloads/%{pkgname}-security-%{version}.gem
 # Source2-md5:	35213b39e4ca4a232c1cb4fa957614bd
 Patch0:		%{name}-vendor.patch
 Group:		Development/Languages
-URL:		http://rubyforge.org/projects/.../
+URL:		http://prawnpdf.org/
 BuildRequires:	rpmbuild(macros) >= 1.484
 BuildRequires:	ruby >= 1:1.8.6
 BuildRequires:	ruby-modules
-%{?ruby_mod_ver_requires_eq}
-#BuildArch:	noarch
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-# nothing to be placed there. we're not noarch only because of ruby packaging
-%define		_enable_debug_packages	0
 
 %description
 Prawn is a pure Ruby PDF generation library that aims to make low
@@ -73,11 +73,11 @@ rm ri/cache.ri
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{ruby_rubylibdir},%{ruby_ridir},%{ruby_rdocdir}}
+install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{ruby_ridir},%{ruby_rdocdir}}
 
-cp -a lib/* $RPM_BUILD_ROOT%{ruby_rubylibdir}
-cp -a vendor $RPM_BUILD_ROOT%{ruby_rubylibdir}/prawn
-cp -a data $RPM_BUILD_ROOT%{ruby_rubylibdir}/prawn
+cp -a lib/* $RPM_BUILD_ROOT%{ruby_vendorlibdir}
+cp -a vendor $RPM_BUILD_ROOT%{ruby_vendorlibdir}/prawn
+cp -a data $RPM_BUILD_ROOT%{ruby_vendorlibdir}/prawn
 
 cp -a ri/* $RPM_BUILD_ROOT%{ruby_ridir}
 cp -a rdoc $RPM_BUILD_ROOT%{ruby_rdocdir}/%{name}-%{version}
@@ -88,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc HACKING README*
-%{ruby_rubylibdir}/%{pkgname}
+%{ruby_vendorlibdir}/%{pkgname}
 
 %files rdoc
 %defattr(644,root,root,755)

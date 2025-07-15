@@ -62,7 +62,7 @@ mv README{,.security}
 mv README{,.layout}
 %{__tar} xf %{SOURCE0} -O data.tar.gz | %{__tar} xz
 find -newer README -o -print | xargs touch --reference %{SOURCE0}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 rdoc --ri --op ri lib

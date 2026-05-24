@@ -2,7 +2,7 @@
 Summary:	Pure Ruby PDF generation library
 Name:		ruby-%{pkgname}
 Version:	2.5.0
-Release:	2
+Release:	3
 License:	GPL v2+ or GPL v3+ or Ruby-like
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
